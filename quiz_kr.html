@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="ko"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;효과충 vs 효율충 테스트&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@font-face {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Pretendard';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>src: url('Pretendard-1.woff2') format('woff2');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: #f4f2ee;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #3f3f3f;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Pretendard', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.container {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 600px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 auto;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.question {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 2px solid #3f3f3f;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hidden {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;효과충 vs 효율충 테스트&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="quiz"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const questions = [</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>q: '일이 시작되었을 때, 나는?',</p>
+<p class="p1"><span class="Apple-converted-space">        </span>a: '일단 전체 목적과 방향을 먼저 파악한다.',</p>
+<p class="p1"><span class="Apple-converted-space">        </span>b: '일단 빠르게 처리 가능한 것부터 손댄다.',</p>
+<p class="p1"><span class="Apple-converted-space">      </span>},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>q: '새로운 프로젝트를 맡았을 때, 나는?',</p>
+<p class="p1"><span class="Apple-converted-space">        </span>a: '이 일이 왜 필요한지, 어떤 의미인지 이해해야 동기부여 된다.',</p>
+<p class="p1"><span class="Apple-converted-space">        </span>b: '구체적인 액션 플랜과 마일스톤이 있어야 안정감을 느낀다.',</p>
+<p class="p1"><span class="Apple-converted-space">      </span>},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>// ...이하 8문항 추가 가능 (총 10문항)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let current = 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let scoreA = 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let scoreB = 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const quizEl = document.getElementById('quiz');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function renderQuestion() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (current &gt;= questions.length) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>showResult();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const q = questions[current];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>quizEl.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="question"&gt;${q.q}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn" onclick="choose('a')"&gt;${q.a}&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn" onclick="choose('b')"&gt;${q.b}&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function choose(answer) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (answer === 'a') scoreA++;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (answer === 'b') scoreB++;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>current++;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>renderQuestion();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function showResult() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let result = '';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (scoreA &gt;= 7) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>result = '💡 당신은 효과충입니다! Meaning-Oriented Type';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else if (scoreB &gt;= 7) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>result = '⚙️ 당신은 효율충입니다! Efficiency-Seeker Type';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>result = '⚖️ 당신은 밸런서입니다! Strategy-in-Action Type';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>quizEl.innerHTML = `&lt;h2&gt;${result}&lt;/h2&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>renderQuestion();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
