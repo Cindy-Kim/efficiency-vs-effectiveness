@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Result – Efficiency Seeker</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    body {
+      font-family: 'Pretendard', sans-serif;
+      background-color: #f4f2ee;
+      color: #3f3f3f;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .result-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .result-image {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto 30px;
+      border-radius: 12px;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .type-label {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    .section {
+      text-align: left;
+      margin-bottom: 30px;
+    }
+    .section h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .section p {
+      line-height: 1.8;
+    }
+    .restart-btn {
+      display: inline-block;
+      background-color: #3f3f3f;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .action-btn {
+      background-color: #f4f2ee;
+      color: #3f3f3f;
+      border: 1px solid #3f3f3f;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .action-btn:hover {
+      background-color: #eae8e4;
+    }
+    .circle-btn {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .small-note {
+      margin-top: 100px;
+      font-size: 13px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="result-container">
+
+    <!-- ✅ Capture Area -->
+    <div id="captureArea">
+      <img class="result-image" src="Efficiency Seeker.png" alt="Efficiency Hunter Illustration" />
+      <h1>⚡ You’re an Efficiency Seeker!</h1>
+      <div class="type-label">(Action-Oriented Type)</div>
+
+      <div class="section">
+        <h2>⚡ “I just start — and find better ways as I go.”</h2>
+        <p>
+          You’re used to getting things done quickly and improving along the way.<br />
+          You naturally ask, “How can I do this faster and more efficiently?”<br />
+          You’re a practical optimizer who thrives in motion.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>✨ Your Strengths</h2>
+        <ul>
+          <li>You have a results-driven mindset with fast execution.</li>
+          <li>You love productivity tools, automation, and prioritizing tasks.</li>
+          <li>You bring strong momentum that keeps your team moving.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>⚠️ Watch Out For</h2>
+        <ul>
+          <li>You might skip asking “why” and jump straight into action.</li>
+          <li>You could feel frustrated working with slower, more reflective collaborators.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>🌷 Coaching Insight</h2>
+        <p>
+          Your bias for action is a powerful strength.<br />
+          But don’t forget to pause mid-run and ask, “Am I headed in the right direction?”<br />
+          If the answer is yes — run faster. If not — it might be time to slow down or change course.
+        </p>
+      </div>
+    </div>
+
+    <!-- ✅ Button Area -->
+    <div style="margin-top: 80px; display: flex; justify-content: center; gap: 20px;">
+      <button onclick="downloadPageAsImage()" class="action-btn">
+        ⬇️ Save Result as Image
+      </button>
+
+      <button onclick="copyLink()" class="circle-btn" title="Copy Link">
+        🔗
+      </button>
+    </div>
+
+    <!-- ✅ Copy Message -->
+    <div id="copyMessage" style="margin-top: 10px; font-size: 13px; color: green; display: none;">
+      ✅ Link copied to clipboard!
+    </div>
+
+    <!-- ✅ CTA Note -->
+    <div class="small-note">
+      Hi, I’m <strong>Cindy</strong>, a life & team coach :)<br />
+      I made this quiz just for fun, while reflecting on the difference between efficiency and effectiveness.<br />
+      I hope it sparked a small insight for you ☺️ <br />
+      If you'd like to explore the reference articles that inspired this quiz,  
+      <a href="reference_en.html" style="color: #1a73e8; text-decoration: underline;">click here</a>.<br /><br />
+      If you're curious about coaching,<br />
+      or feeling burned out or stuck at work,<br />
+      <strong>why not try a free 30-minute coaching session?</strong><br /><br />
+      Click below to visit my website and learn more!
+    </div>
+
+    <a class="restart-btn" href="https://coach-goyou.super.site" style="margin-top: 20px;">
+      Try Coaching for Free
+    </a>
+  </div>
+
+  <!-- ✅ Scripts -->
+  <script>
+    function downloadPageAsImage() {
+      const captureTarget = document.getElementById("captureArea");
+      html2canvas(captureTarget, { scale: 2 }).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "result_efficiency.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+      });
+    }
+
+    function copyLink() {
+      const url = window.location.href;
+      navigator.clipboard.writeText(url).then(() => {
+        const msg = document.getElementById("copyMessage");
+        msg.style.display = "block";
+        setTimeout(() => {
+          msg.style.display = "none";
+        }, 2000);
+      }).catch(() => {
+        alert("Failed to copy link. Please check your browser settings.");
+      });
+    }
+  </script>
+</body>
+</html>

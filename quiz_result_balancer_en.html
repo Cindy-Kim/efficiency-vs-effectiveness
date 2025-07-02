@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Result – Balancer</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    body {
+      font-family: 'Pretendard', sans-serif;
+      background-color: #f4f2ee;
+      color: #3f3f3f;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .result-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .result-image {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto 30px;
+      border-radius: 12px;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .type-label {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    .section {
+      text-align: left;
+      margin-bottom: 30px;
+    }
+    .section h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .section p {
+      line-height: 1.8;
+    }
+    .restart-btn {
+      display: inline-block;
+      background-color: #3f3f3f;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .action-btn {
+      background-color: #f4f2ee;
+      color: #3f3f3f;
+      border: 1px solid #3f3f3f;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .action-btn:hover {
+      background-color: #eae8e4;
+    }
+    .circle-btn {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .small-note {
+      margin-top: 100px;
+      font-size: 13px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="result-container">
+
+    <!-- ✅ Capture Target -->
+    <div id="captureArea">
+      <img class="result-image" src="balancer.png" alt="Balancer Illustration" />
+      <h1>⚖️ You’re a Balancer!</h1>
+      <div class="type-label">(Strategy-in-Action Type)</div>
+
+      <div class="section">
+        <h2>⚖️ “Purpose and execution—both matter to me.”</h2>
+        <p>
+          You have strong execution skills, but you don’t move without purpose.<br />
+          You’re someone who naturally asks “Why are we doing this?”—<br />
+          and then turns that reflection into actionable strategies.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>✨ Your Strengths</h2>
+        <ul>
+          <li>You have a broad perspective that considers both purpose and efficiency.</li>
+          <li>You act as the “connector and clarifier” within your team.</li>
+          <li>You can flex your approach depending on the situation.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>⚠️ Watch Out For</h2>
+        <ul>
+          <li>If you stay too centered, you may appear indecisive or lacking principles.</li>
+          <li>In conflicts, you might struggle to take a clear stance.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>🌷 Coaching Insight</h2>
+        <p>
+          Your ability to balance is a powerful asset.<br />
+          But there will be moments where you must choose—efficiency or effectiveness.<br />
+          Try defining your own decision-making principles more clearly.
+        </p>
+      </div>
+    </div>
+
+    <!-- ✅ Buttons -->
+    <div style="margin-top: 80px; display: flex; justify-content: center; gap: 20px;">
+      <button onclick="downloadPageAsImage()" class="action-btn">
+        ⬇️ Save Result as Image
+      </button>
+
+      <button onclick="copyLink()" class="circle-btn" title="Copy Link">
+        🔗
+      </button>
+    </div>
+
+    <!-- ✅ Copy Message -->
+    <div id="copyMessage" style="margin-top: 10px; font-size: 13px; color: green; display: none;">
+      ✅ Link copied to clipboard!
+    </div>
+
+    <!-- ✅ Note -->
+    <div class="small-note">
+      Hi, I’m a life and team coach<strong>Cindy</strong> :).<br />
+      I created this test just for fun—while exploring the differences between efficiency and effectiveness.<br />
+      I hope it gave you a little insight ☺️ <br />
+      If you'd like to explore the reference materials used to create this quiz,  
+      <a href="reference_en.html" style="color: #1a73e8; text-decoration: underline;">click here</a>.<br /><br />
+      If you're into content like this,<br />
+      follow me on LinkedIn!
+    </div>
+
+    <a class="restart-btn" href="https://www.linkedin.com/in/goyoubycindy/" style="margin-top: 20px;">
+      Follow on LinkedIn
+    </a>
+  </div>
+
+  <!-- ✅ Scripts -->
+  <script>
+    function downloadPageAsImage() {
+      const captureTarget = document.getElementById("captureArea");
+      html2canvas(captureTarget, { scale: 2 }).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "result_balancer.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+      });
+    }
+
+    function copyLink() {
+      const url = window.location.href;
+      navigator.clipboard.writeText(url).then(() => {
+        const msg = document.getElementById("copyMessage");
+        msg.style.display = "block";
+        setTimeout(() => {
+          msg.style.display = "none";
+        }, 2000);
+      }).catch(() => {
+        alert("Failed to copy link. Please check your browser settings.");
+      });
+    }
+  </script>
+</body>
+</html>
