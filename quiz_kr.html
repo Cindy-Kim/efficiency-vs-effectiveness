@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>효과충 vs 효율충 테스트</title>
+  <style>
+    body {
+      background-color: #f4f2ee;
+      color: #3f3f3f;
+      font-family: 'Pretendard', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 2rem;
+    }
+    .question-container {
+      max-width: 600px;
+      text-align: center;
+    }
+    .question {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      padding: 1rem 2rem;
+      margin: 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: white;
+      color: #3f3f3f;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: background 0.2s;
+    }
+    .btn:hover {
+      background-color: #e0ddd9;
+    }
+  </style>
+</head>
+<body>
+  <div class="question-container">
+    <div id="question" class="question"></div>
+    <div>
+      <button class="btn" onclick="selectAnswer('A')">A</button>
+      <button class="btn" onclick="selectAnswer('B')">B</button>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      "하루 일정을 정할 때 나는:",
+      "일을 할 때 나는:",
+      "새로운 아이디어가 떠올랐을 때:",
+      "팀 프로젝트에서 나는:",
+      "마감이 임박했을 때 나는:",
+      "회의 시간에 나는:",
+      "실수했을 때 나는:",
+      "업무를 맡을 때 나는:",
+      "나의 Todo 리스트는:",
+      "무언가를 시작할 때 나는:"
+    ];
+
+    let currentQuestion = 0;
+    let score = 0; // A 선택 시 +1
+
+    function showQuestion() {
+      if (currentQuestion < questions.length) {
+        document.getElementById('question').textContent = `${currentQuestion + 1}. ${questions[currentQuestion]}`;
+      } else {
+        // 결과 페이지로 이동
+        if (score <= 3) {
+          location.href = 'result_effectiveness_kr.html';
+        } else if (score >= 7) {
+          location.href = 'result_efficiency_kr.html';
+        } else {
+          location.href = 'result_balancer_kr.html';
+        }
+      }
+    }
+
+    function selectAnswer(answer) {
+      if (answer === 'A') score++;
+      currentQuestion++;
+      showQuestion();
+    }
+
+    showQuestion();
+  </script>
+</body>
+</html>
