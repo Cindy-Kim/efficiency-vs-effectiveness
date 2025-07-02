@@ -100,12 +100,21 @@
       </div>
     </div>
 
-    <!-- ✅ 이미지 저장 버튼 (캡처 대상 아님) -->
-    <div style="margin-top: 30px;">
-      <button onclick="downloadPageAsImage()" class="restart-btn" style="background-color: #999;">
-        📸 결과 이미지로 저장
-      </button>
-    </div>
+   <!-- ✅ 이미지 저장 + 링크 복사 버튼 -->
+  <div style="margin-top: 40px; display: flex; justify-content: center; gap: 10px;">
+    <button onclick="downloadPageAsImage()" class="restart-btn" style="background-color: #999; cursor: pointer;">
+      📸 결과 이미지로 저장
+    </button>
+  
+    <button onclick="copyLink()" style="background-color: #fff; border: 1px solid #ccc; border-radius: 50%; width: 48px; height: 48px; font-size: 20px; cursor: pointer;" title="링크 복사">
+      🔗
+    </button>
+  </div>
+  
+  <!-- ✅ 링크 복사 안내 메시지 -->
+  <div id="copyMessage" style="margin-top: 10px; font-size: 13px; color: green; display: none;">
+    ✅ 링크가 복사되었습니다!
+  </div>
 
     <!-- ✅ 코칭 안내 문구 및 링크 (캡처 대상 아님) -->
     <div class="small-note">
