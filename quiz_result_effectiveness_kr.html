@@ -2,9 +2,10 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>결과_효과충</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <style>
     body {
       font-family: 'Pretendard', sans-serif;
@@ -47,72 +48,70 @@
       border-radius: 8px;
       text-decoration: none;
       font-size: 16px;
-      transition: background-color 0.2s ease;
-    }
-    .restart-btn:hover {
-      background-color: #555;
     }
     .small-note {
+      margin-top: 100px;
       font-size: 13px;
       color: #777;
-      margin-top: 100px;
-      line-height: 1.6;
     }
   </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
-
 <body>
-  <div id="captureArea" class="result-container">
-    <img class="result-image" src="Effectivness Seeker.png" alt="Effectiveness Seeker Illustration">
+  <div class="result-container">
 
-    <h1>🎯당신은 효과충!</h1>
-    <div class="type-label">(의미 중심형 / Meaning-Oriented Type)</div>
+    <!-- ✅ 캡처 대상 -->
+    <div id="captureArea">
+      <img class="result-image" src="Effectivness Seeker.png" alt="Effectiveness Seeker Illustration" />
+      <h1>🎯당신은 효과충!</h1>
+      <div class="type-label">(의미 중심형 / Meaning-Oriented Type)</div>
 
-    <div class="section">
-      <h2>💭 “의미 없는 일은... 손이 안 가요.”</h2>
-      <p>
-        목적이 없는 일은 마음이 움직이지 않아요.<br>
-        당신은 '왜 이 일을 해야 하는가'를 스스로 납득할 수 있어야 에너지가 나는 사람입니다.
-      </p>
+      <div class="section">
+        <h2>💭 “의미 없는 일은... 손이 안 가요.”</h2>
+        <p>
+          목적이 없는 일은 마음이 움직이지 않아요.<br />
+          당신은 '왜 이 일을 해야 하는가'를 스스로 납득할 수 있어야 에너지가 나는 사람입니다.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>✨ 당신의 강점</h2>
+        <ul>
+          <li>방향성과 목적 설정에 강해요.</li>
+          <li>의미 있는 일에 몰입할 때 깊이 있는 성과를 냅니다.</li>
+          <li>주변 사람들에게 '생각의 자극'을 주는 존재예요.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>⚠️ 주의할 점</h2>
+        <ul>
+          <li>때로는 실행이 늦어질 수 있어요 ("생각은 많은데 못 했어" 유형)</li>
+          <li>완벽한 맥락이나 명분이 없으면 아예 손을 안 댈 수도 있어요.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>🌷 코칭 포인트</h2>
+        <p>
+          “의미”를 무시하지 말되, 작은 실행으로 리듬을 만들어보세요.<br />
+          완벽한 준비는 없어요. 일단 시작해보면 생각했던 목표가 수정될 수 있음을 감안하세요.<br />
+          "의미"를 도저히 찾을 수 없는 상황이라면, "의미"를 직접 만들어갈 수 있는 방법을 찾아보세요.
+        </p>
+      </div>
     </div>
 
-    <div class="section">
-      <h2>✨ 당신의 강점</h2>
-      <ul>
-        <li>방향성과 목적 설정에 강해요.</li>
-        <li>의미 있는 일에 몰입할 때 깊이 있는 성과를 냅니다.</li>
-        <li>주변 사람들에게 '생각의 자극'을 주는 존재예요.</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>⚠️ 주의할 점</h2>
-      <ul>
-        <li>때로는 실행이 늦어질 수 있어요 ("생각은 많은데 못 했어" 유형)</li>
-        <li>완벽한 맥락이나 명분이 없으면 아예 손을 안 댈 수도 있어요.</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>🌷 코칭 포인트</h2>
-      <p>
-        “의미”를 무시하지 말되, 작은 실행으로 리듬을 만들어보세요.<br>
-        완벽한 준비는 없어요. 일단 시작해보면 생각했던 목표가 수정될 수 있음을 감안하세요.<br>
-        의미를 찾을 수 없는 상황이라면, 자신만의 가치와 연결된 "의미"를 직접 부여할 수 있는 방법을 찾아보세요.
-      </p>
-    </div>
-
+    <!-- ✅ 이미지 저장 버튼 (캡처 대상 아님) -->
     <div style="margin-top: 30px;">
       <button onclick="downloadPageAsImage()" class="restart-btn" style="background-color: #999;">
         📸 결과 이미지로 저장
       </button>
     </div>
 
+    <!-- ✅ 코칭 안내 문구 및 링크 (캡처 대상 아님) -->
     <div class="small-note">
-      본인이 뭘 잘하고 좋아하는 지 잘 모르겠다면,<br>
-      업무에서 번아웃을 느끼거나 삶의 의미를 찾고 계시다면,<br>
-      <strong>라이프 코칭을 한 번 받아보세요.</strong><br>
+      본인이 뭘 잘하고 좋아하는 지 잘 모르겠다면,<br />
+      업무에서 번아웃을 느끼거나 삶의 의미를 찾고 계시다면,<br />
+      <strong>라이프 코칭을 한 번 받아보세요.</strong><br />
       아래 버튼을 눌러 제 사이트에 들어가서 코칭이 뭔지 살펴보시고, <strong>30분 무료 체험</strong>을 신청해보세요.
     </div>
 
@@ -121,6 +120,7 @@
     </a>
   </div>
 
+  <!-- ✅ 이미지 저장 스크립트 -->
   <script>
     function downloadPageAsImage() {
       const captureTarget = document.getElementById("captureArea");
