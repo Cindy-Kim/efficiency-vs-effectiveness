@@ -32,9 +32,9 @@
       border: 1px solid #ccc;
       border-radius: 10px;
       cursor: pointer;
-      width: 100%; /* 기존엔 버튼이 부모 기준으로 꽉 차게 */
-      max-width: 500px; /* 버튼 최대 너비 설정 */
-      min-height: 70px; /* 버튼 높이 고정 */
+      width: 100%;
+      max-width: 500px;
+      min-height: 70px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -59,7 +59,7 @@
   </div>
 
   <script>
-    const questionData = [
+    const questions = [  // ✅ 이름을 questionData → questions 로 통일
       {
         question: "1. 회의 시간, 당신은?",
         A: "논의보다 결정을 중요하게 여긴다. 시간이 길어지면 답답하다.",
@@ -113,29 +113,26 @@
     ];
 
     let current = 0;
-    let scoreA = 0;
-    let scoreB = 0;
+    let score = 0;
 
     function renderQuestion() {
-      if (current < questionData.length) {
-        document.getElementById("question").textContent = questionData[current].question;
-        document.getElementById("optionA").textContent = questionData[current].A;
-        document.getElementById("optionB").textContent = questionData[current].B;
+      if (current < questions.length) {
+        document.getElementById('question').textContent = questions[current].question;
+        document.getElementById('optionA').textContent = questions[current].A;
+        document.getElementById('optionB').textContent = questions[current].B;
       } else {
-        // 결과 페이지 이동
-        if (scoreA > scoreB) {
-          location.href = "quiz_result_efficiency_kr.html";
-        } else if (scoreB > scoreA) {
-          location.href = "quiz_result_effectiveness_kr.html";
+        if (score <= 3) {
+          window.location.href = "result_effectiveness_kr.html";
+        } else if (score <= 6) {
+          window.location.href = "result_balancer_kr.html";
         } else {
-          location.href = "quiz_result_balancer_kr.html";
+          window.location.href = "result_efficiency_kr.html";
         }
       }
     }
 
     function handleAnswer(choice) {
-      if (choice === "A") scoreA++;
-      else if (choice === "B") scoreB++;
+      if (choice === "A") score++;
       current++;
       renderQuestion();
     }
