@@ -3,132 +3,131 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>효율충 vs 효과충 테스트</title>
+  <title>효과충 vs 효율충 테스트</title>
   <style>
     body {
       background-color: #f4f2ee;
-      color: #3f3f3f;
       font-family: 'Pretendard', sans-serif;
+      color: #3f3f3f;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      margin: 0;
-    }
-    .container {
+      flex-direction: column;
       text-align: center;
+      padding: 20px;
+    }
+    .question-box {
       max-width: 600px;
-      padding: 2rem;
     }
-    .question {
-      font-size: 1.4rem;
-      margin-bottom: 2rem;
-    }
-    .options button {
-      background-color: white;
-      border: 2px solid #3f3f3f;
-      border-radius: 8px;
-      padding: 1rem 2rem;
+    .answer-btn {
+      margin: 10px;
+      padding: 15px 25px;
       font-size: 1rem;
-      margin: 0.5rem;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
       cursor: pointer;
-      transition: all 0.2s;
+      width: 100%;
     }
-    .options button:hover {
-      background-color: #ddd;
+    .answer-text {
+      display: block;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="question" id="question">로딩 중...</div>
-    <div class="options">
-      <button id="optionA" onclick="answer('A')">A</button>
-      <button id="optionB" onclick="answer('B')">B</button>
-    </div>
+  <div class="question-box">
+    <h2 id="question">질문 로딩 중...</h2>
+    <button class="answer-btn" onclick="handleAnswer('A')">
+      <span id="optionA" class="answer-text">A 선택지</span>
+    </button>
+    <button class="answer-btn" onclick="handleAnswer('B')">
+      <span id="optionB" class="answer-text">B 선택지</span>
+    </button>
   </div>
 
   <script>
-    const questions = [
+    const questionData = [
       {
-        q: "회의 시간, 당신은?",
-        a: "논의보다 결정을 중요하게 여긴다. 시간이 길어지면 답답하다.",
-        b: "당장 결정보다 방향성과 맥락이 공유되는 걸 더 중요하게 본다."
+        question: "1. 회의 시간, 당신은?",
+        A: "논의보다 결정을 중요하게 여긴다. 시간이 길어지면 답답하다.",
+        B: "당장 결정보다 방향성과 맥락이 공유되는 걸 더 중요하게 본다."
       },
       {
-        q: "일을 맡았을 때 가장 먼저 하는 건?",
-        a: "일단 할 수 있는 일부터 착착 해치운다.",
-        b: "이 일이 왜 필요한지, 어떤 임팩트를 낼 수 있을지 먼저 생각해본다."
+        question: "2. 일을 맡았을 때 가장 먼저 하는 건?",
+        A: "일단 할 수 있는 일부터 착착 해치운다.",
+        B: "이 일이 왜 필요한지, 어떤 임팩트를 낼 수 있을지 먼저 생각해본다."
       },
       {
-        q: "할 일이 너무 많을 때 당신은?",
-        a: "우선순위별로 쪼개서 빨리 처리할 수 있는 것부터 줄인다.",
-        b: "중요한 일 몇 개를 남기고 나머지는 과감히 미룬다."
+        question: "3. 할 일이 너무 많을 때 당신은?",
+        A: "우선순위별로 쪼개서 빨리 처리할 수 있는 것부터 줄인다.",
+        B: "중요한 일 몇 개를 남기고 나머지는 과감히 미룬다."
       },
       {
-        q: "업무 방식이 엉켜있을 때 당신은?",
-        a: "자동화/도구를 써서 효율적으로 정리하려 한다.",
-        b: "문제의 본질이 뭔지 먼저 파악하고 구조를 재설계하려 한다."
+        question: "4. 업무 방식이 엉켜있을 때 당신은?",
+        A: "자동화/도구를 써서 효율적으로 정리하려 한다.",
+        B: "문제의 본질이 뭔지 먼저 파악하고 구조를 재설계하려 한다."
       },
       {
-        q: "협업할 때 가장 중요하게 보는 건?",
-        a: "빠른 피드백 루프와 실행 속도",
-        b: "공동의 목적과 방향성 정렬"
+        question: "5. 협업할 때 가장 중요하게 보는 건?",
+        A: "빠른 피드백 루프와 실행 속도",
+        B: "공동의 목적과 방향성 정렬"
       },
       {
-        q: "오늘 할 일을 정할 때 당신은?",
-        a: "시간 대비 성과가 높은 일을 우선 배치한다.",
-        b: "내 가치나 팀의 목표와 연결되는 일을 우선 배치한다."
+        question: "6. 오늘 할 일을 정할 때 당신은?",
+        A: "시간 대비 성과가 높은 일을 우선 배치한다.",
+        B: "내 가치나 팀의 목표와 연결되는 일을 우선 배치한다."
       },
       {
-        q: "새로운 아이디어가 떠올랐을 때 당신은?",
-        a: "실행 가능성과 리소스를 먼저 따져본다.",
-        b: "왜 이 아이디어가 지금 필요한지 고민한다."
+        question: "7. 새로운 아이디어가 떠올랐을 때 당신은?",
+        A: "실행 가능성과 리소스를 먼저 따져본다.",
+        B: "왜 이 아이디어가 지금 필요한지 고민한다."
       },
       {
-        q: "동료가 갑자기 “이거 급해요!” 라고 할 때",
-        a: "우선 도와주되, 내 작업 흐름이 끊기지 않도록 구조화해서 처리한다.",
-        b: "왜 급한지 먼저 질문하고, 전체 일의 맥락 속에서 다시 우선순위를 잡는다."
+        question: "8. 동료가 갑자기 “이거 급해요!” 라고 할 때",
+        A: "우선 도와주되, 내 작업 흐름이 끊기지 않도록 구조화해서 처리한다.",
+        B: "왜 급한지 먼저 질문하고, 전체 일의 맥락 속에서 다시 우선순위를 잡는다."
       },
       {
-        q: "당신이 존경하는 리더는?",
-        a: "일의 우선순위를 명확히 제시하고 빠르게 실행하는 사람",
-        b: "목적과 철학을 말해주고 사람을 성장시키는 사람"
+        question: "9. 당신이 존경하는 리더는?",
+        A: "일의 우선순위를 명확히 제시하고 빠르게 실행하는 사람",
+        B: "목적과 철학을 말해주고 사람을 성장시키는 사람"
       },
       {
-        q: "\"성과\"에 대해 가장 가까운 정의는?",
-        a: "정해진 시간/리소스 내에 최적의 결과를 만들어내는 것",
-        b: "조직/사람에게 지속적인 영향을 남기는 결과를 만들어내는 것"
+        question: "10. '성과'에 대해 가장 가까운 정의는?",
+        A: "정해진 시간/리소스 내에 최적의 결과를 만들어내는 것",
+        B: "조직/사람에게 지속적인 영향을 남기는 결과를 만들어내는 것"
       }
     ];
 
     let current = 0;
-    let score = 0; // A = +1 (효율), B = 0 (효과)
+    let scoreA = 0;
+    let scoreB = 0;
 
     function renderQuestion() {
-      if (current < questions.length) {
-        document.getElementById('question').textContent = questions[current].q;
-        document.getElementById('optionA').textContent = questions[current].a;
-        document.getElementById('optionB').textContent = questions[current].b;
+      if (current < questionData.length) {
+        document.getElementById("question").textContent = questionData[current].question;
+        document.getElementById("optionA").textContent = questionData[current].A;
+        document.getElementById("optionB").textContent = questionData[current].B;
       } else {
-        // 결과로 이동
-        if (score >= 7) {
-          window.location.href = 'result_efficiency_kr.html';
-        } else if (score <= 3) {
-          window.location.href = 'result_effectiveness_kr.html';
+        // 결과 페이지 이동
+        if (scoreA > scoreB) {
+          location.href = "result_efficiency_kr.html";
+        } else if (scoreB > scoreA) {
+          location.href = "result_effectiveness_kr.html";
         } else {
-          window.location.href = 'result_balancer_kr.html';
+          location.href = "result_balancer_kr.html";
         }
       }
     }
 
-    function answer(choice) {
-      if (choice === 'A') score += 1;
+    function handleAnswer(choice) {
+      if (choice === "A") scoreA++;
+      else if (choice === "B") scoreB++;
       current++;
       renderQuestion();
     }
 
-    // 초기 질문 렌더링
     renderQuestion();
   </script>
 </body>
