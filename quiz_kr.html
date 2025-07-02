@@ -19,6 +19,10 @@
     }
     .question-box {
       max-width: 600px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .answer-btn {
       margin: 10px;
@@ -28,7 +32,15 @@
       border: 1px solid #ccc;
       border-radius: 10px;
       cursor: pointer;
-      width: 100%;
+      width: 100%; /* 기존엔 버튼이 부모 기준으로 꽉 차게 */
+      max-width: 500px; /* 버튼 최대 너비 설정 */
+      min-height: 70px; /* 버튼 높이 고정 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: normal;
+      line-height: 1.4;
+      box-sizing: border-box;
     }
     .answer-text {
       display: block;
