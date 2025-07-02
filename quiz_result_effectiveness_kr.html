@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>결과_효과충</title>
   <link rel="stylesheet" href="style.css">
   <style>
@@ -47,11 +47,23 @@
       border-radius: 8px;
       text-decoration: none;
       font-size: 16px;
+      transition: background-color 0.2s ease;
+    }
+    .restart-btn:hover {
+      background-color: #555;
+    }
+    .small-note {
+      font-size: 13px;
+      color: #777;
+      margin-top: 100px;
+      line-height: 1.6;
     }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
+
 <body>
-  <div class="result-container">
+  <div id="captureArea" class="result-container">
     <img class="result-image" src="Effectivness Seeker.png" alt="Effectiveness Seeker Illustration">
 
     <h1>🎯당신은 효과충!</h1>
@@ -59,8 +71,10 @@
 
     <div class="section">
       <h2>💭 “의미 없는 일은... 손이 안 가요.”</h2>
-      <p>목적이 없는 일은 마음이 움직이지 않아요.<br>
-      당신은 '왜 이 일을 해야 하는가'를 스스로 납득할 수 있어야 에너지가 나는 사람입니다.</p>
+      <p>
+        목적이 없는 일은 마음이 움직이지 않아요.<br>
+        당신은 '왜 이 일을 해야 하는가'를 스스로 납득할 수 있어야 에너지가 나는 사람입니다.
+      </p>
     </div>
 
     <div class="section">
@@ -82,20 +96,42 @@
 
     <div class="section">
       <h2>🌷 코칭 포인트</h2>
-      <p>“의미”를 무시하지 말되, 작은 실행으로 리듬을 만들어보세요.<br>
-      완벽하지 않아도, 일단 시작해보는 연습이 도움됩니다.<br>
-      완벽한 준비는 없어요. 일단 시작해보면 생각했던 목표가 수정될 수도 있다는 점을 감안하세요.</p>
+      <p>
+        “의미”를 무시하지 말되, 작은 실행으로 리듬을 만들어보세요.<br>
+        완벽한 준비는 없어요. 일단 시작해보면 생각했던 목표가 수정될 수 있음을 감안하세요.<br>
+        의미를 찾을 수 없는 상황이라면, 자신만의 가치와 연결된 "의미"를 직접 부여할 수 있는 방법을 찾아보세요.
+      </p>
     </div>
 
-    <div class="section" style="margin-top: 40px; font-size: 15px; color: #777;">
-      본인이 뭘 잘하고 좋아하는 지 애써 찾고 계신가요?<br>
-      업무에서 번아웃을 느끼거나, 삶의 의미를 찾고 계시다면-<br>
-      <strong>코칭을 한 번 받아보세요.</strong><br>
-      아래 버튼을 누르면 제 사이트에 들어가서 <strong>30분 무료 체험</strong>을 해보실 수 있습니다.
+    <div style="margin-top: 30px;">
+      <button onclick="downloadPageAsImage()" class="restart-btn" style="background-color: #999;">
+        📸 결과 이미지로 저장
+      </button>
     </div>
 
-    <a class="restart-btn" href="https://coach-goyou.super.site" style="margin-top: 20px; display: inline-block;">
+    <div class="small-note">
+      본인이 뭘 잘하고 좋아하는 지 잘 모르겠다면,<br>
+      업무에서 번아웃을 느끼거나 삶의 의미를 찾고 계시다면,<br>
+      <strong>라이프 코칭을 한 번 받아보세요.</strong><br>
+      아래 버튼을 눌러 제 사이트에 들어가서 코칭이 뭔지 살펴보시고, <strong>30분 무료 체험</strong>을 신청해보세요.
+    </div>
+
+    <a class="restart-btn" href="https://coach-goyou.super.site" style="margin-top: 20px;">
       코칭 무료체험하기
     </a>
+  </div>
+
+  <script>
+    function downloadPageAsImage() {
+      const captureTarget = document.getElementById("captureArea");
+
+      html2canvas(captureTarget, { scale: 2 }).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "result.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+      });
+    }
+  </script>
 </body>
 </html>
