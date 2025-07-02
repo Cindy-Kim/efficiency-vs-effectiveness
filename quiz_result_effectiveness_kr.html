@@ -52,6 +52,30 @@
       text-decoration: none;
       font-size: 16px;
     }
+    .action-btn {
+      background-color: #f4f2ee;
+      color: #3f3f3f;
+      border: 1px solid #3f3f3f;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .action-btn:hover {
+      background-color: #eae8e4;
+    }
+    .circle-btn {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 20px;
+      cursor: pointer;
+    }
     .small-note {
       margin-top: 100px;
       font-size: 13px;
@@ -103,30 +127,30 @@
       </div>
     </div>
 
-   <!-- ✅ 이미지 저장 + 링크 복사 버튼 -->
-  <div style="margin-top: 80px; margin-right: 40px; display: flex; justify-content: center; gap: 5px;">
-    <button onclick="downloadPageAsImage()" class="restart-btn" style="background-color: #3f3f3f; cursor: pointer;">
-      ⬇️ 결과 이미지 저장
-    </button>
-  
-    <button onclick="copyLink()" style="background-color: #fff; border: 1px solid #ccc; border-radius: 50%; width: 48px; height: 48px; font-size: 20px; cursor: pointer;" title="링크 복사">
-      🔗
-    </button>
-  </div>
-  
-  <!-- ✅ 링크 복사 안내 메시지 -->
-  <div id="copyMessage" style="margin-top: 10px; font-size: 13px; color: green; display: none;">
-    ✅ 링크가 복사되었습니다!
-  </div>
+    <!-- ✅ 버튼 영역 -->
+    <div style="margin-top: 80px; display: flex; justify-content: center; gap: 20px;">
+      <button onclick="downloadPageAsImage()" class="action-btn">
+        ⬇️ 결과 이미지 저장
+      </button>
 
-    <!-- ✅ 코칭 안내 문구 및 링크 (캡처 대상 아님) -->
+      <button onclick="copyLink()" class="circle-btn" title="링크 복사">
+        🔗
+      </button>
+    </div>
+
+    <!-- ✅ 복사 메시지 -->
+    <div id="copyMessage" style="margin-top: 10px; font-size: 13px; color: green; display: none;">
+      ✅ 링크가 복사되었습니다!
+    </div>
+
+    <!-- ✅ 코칭 CTA -->
     <div class="small-note">
       안녕하세요. 코치, <strong>고유</strong>입니다 :) <br />
       재미로 만들어본 사이트인데 조금이나마 유익하셨기를 바랍니다☺️ <br />
       저는 라이프 코칭을 하고 있는데요, <br />
       본인이 뭘 잘하고 좋아하는 지 잘 모르겠다면,<br />
       직장에서 번아웃을 느끼거나 삶의 의미를 찾고 계시다면,<br />
-      <strong>코칭을 한 번 받아보세요 :) </strong><br />
+      <strong>코칭을 한 번 받아보세요.</strong><br />
       아래 버튼을 눌러 제 사이트에 들어가면 코칭이 뭔지 살펴보고, <strong>30분 무료 체험</strong>을 신청할 수 있습니다.
     </div>
 
@@ -135,16 +159,28 @@
     </a>
   </div>
 
-  <!-- ✅ 이미지 저장 스크립트 -->
+  <!-- ✅ 스크립트 -->
   <script>
     function downloadPageAsImage() {
       const captureTarget = document.getElementById("captureArea");
-
       html2canvas(captureTarget, { scale: 2 }).then(canvas => {
         const link = document.createElement("a");
         link.download = "result.png";
         link.href = canvas.toDataURL("image/png");
         link.click();
+      });
+    }
+
+    function copyLink() {
+      const url = window.location.href;
+      navigator.clipboard.writeText(url).then(() => {
+        const msg = document.getElementById("copyMessage");
+        msg.style.display = "block";
+        setTimeout(() => {
+          msg.style.display = "none";
+        }, 2000);
+      }).catch(() => {
+        alert("링크 복사에 실패했습니다. 브라우저를 확인해주세요.");
       });
     }
   </script>
