@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>결과_효율충</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    body {
+      font-family: 'Pretendard', sans-serif;
+      background-color: #f4f2ee;
+      color: #3f3f3f;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .result-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .result-image {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto 30px;
+      border-radius: 12px;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .type-label {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    .section {
+      text-align: left;
+      margin-bottom: 30px;
+    }
+    .section h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .section p {
+      line-height: 1.8;
+    }
+    .restart-btn {
+      display: inline-block;
+      background-color: #3f3f3f;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .action-btn {
+      background-color: #f4f2ee;
+      color: #3f3f3f;
+      border: 1px solid #3f3f3f;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .action-btn:hover {
+      background-color: #eae8e4;
+    }
+    .circle-btn {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .small-note {
+      margin-top: 100px;
+      font-size: 13px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="result-container">
+
+    <!-- ✅ 캡처 대상 -->
+    <div id="captureArea">
+      <img class="result-image" src="Efficiency Seeker.png" alt="Efficiency Hunter Illustration" />
+      <h1>⚡ 당신은 효율충!</h1>
+      <div class="type-label">(실행 중심형 / Action-Oriented Type)</div>
+
+      <div class="section">
+        <h2>⚡ “일단 해보고, 더 잘하는 방법을 찾죠.”</h2>
+        <p>
+          빠르게 실행하고 개선하며 성과를 내는 데 익숙해요.<br />
+          당신은 ‘어떻게 하면 더 빠르고 효율적으로 할 수 있을까’를<br />
+          고민하는 실행 최적화형 인간입니다.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>✨ 당신의 강점</h2>
+        <ul>
+          <li>빠른 실행과 결과 중심의 사고방식을 갖고 있어요.</li>
+          <li>업무 자동화, 우선순위 설정, 생산성 툴에 관심 많아요.</li>
+          <li>팀을 실질적으로 움직이게 하는 추진력이 있어요.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>⚠️ 주의할 점</h2>
+        <ul>
+          <li>‘왜 하는지’에 대한 질문을 생략하고 일을 벌일 수 있어요.</li>
+          <li>느리고 깊은 사람들과의 협업에서 답답함을 느낄 수 있어요.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>🌷 코칭 포인트</h2>
+        <p>
+          지금의 실행력은 훌륭한 무기예요.<br />
+          다만, 실행 도중 잠시 멈춰 “옳은 방향인가?”를 자문해보세요.<br />
+          방향이 맞다면 속도를 더 내도 좋고, 아니라면 브레이크를 밟아야 할 때일 수 있어요.
+        </p>
+      </div>
+    </div>
+
+    <!-- ✅ 버튼 영역 -->
+    <div style="margin-top: 80px; display: flex; justify-content: center; gap: 20px;">
+      <button onclick="downloadPageAsImage()" class="action-btn">
+        ⬇️ 결과 이미지 저장
+      </button>
+
+      <button onclick="copyLink()" class="circle-btn" title="링크 복사">
+        🔗
+      </button>
+    </div>
+
+    <!-- ✅ 복사 메시지 -->
+    <div id="copyMessage" style="margin-top: 10px; font-size: 13px; color: green; display: none;">
+      ✅ 링크가 복사되었습니다!
+    </div>
+
+    <!-- ✅ 코칭 CTA -->
+    <div class="small-note">
+      안녕하세요. 코치, <strong>고유</strong>입니다 :) <br />
+      효율과 효과의 차이를 찾아보다 재미로 만들어본 테스트인데 조금이나마 유익하셨기를 바랍니다☺️<br />
+      둘의 상세 차이점과 테스트를 만드는 데 참고한 자료를 보고싶으시다면  
+      <a href="reference_kr.html" style="color: #1a73e8; text-decoration: underline;">여기</a>를 눌러주세요.<br /><br />
+      더불어 저는 라이프 코칭을 하고 있는데요, <br />
+      본인이 뭘 잘하고 좋아하는 지 잘 모르겠거나,<br />
+      직장에서 번아웃을 느끼거나 삶의 의미를 찾고 계시다면,<br />
+      <strong>코칭을 한 번 받아보세요.</strong><br /><br />
+      아래 버튼을 눌러 제 사이트에 들어가면, 코칭이 무엇인지 알아보고 <strong>30분 무료 체험</strong>을 신청할 수 있습니다.
+    </div>
+
+    <a class="restart-btn" href="https://coach-goyou.super.site" style="margin-top: 20px;">
+      코칭 무료체험하기
+    </a>
+  </div>
+
+  <!-- ✅ 스크립트 -->
+  <script>
+    function downloadPageAsImage() {
+      const captureTarget = document.getElementById("captureArea");
+      html2canvas(captureTarget, { scale: 2 }).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "result_efficiency.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+      });
+    }
+
+    function copyLink() {
+      const url = window.location.href;
+      navigator.clipboard.writeText(url).then(() => {
+        const msg = document.getElementById("copyMessage");
+        msg.style.display = "block";
+        setTimeout(() => {
+          msg.style.display = "none";
+        }, 2000);
+      }).catch(() => {
+        alert("링크 복사에 실패했습니다. 브라우저를 확인해주세요.");
+      });
+    }
+  </script>
+</body>
+</html>
