@@ -158,16 +158,19 @@
     </div>
 
 <!-- ✅ 버튼 영역 -->
-  <div style="margin-top: 80px; display: flex; justify-content: center; gap: 20px;">
-    <button onclick="downloadPageAsImage()" class="action-btn">
-      ⬇️ 결과 이미지 저장
-    </button>
+<div style="margin-top: 80px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+  <button onclick="downloadPageAsImage()" class="action-btn">
+    ⬇️ 결과 이미지 저장
+  </button>
 
-    <button onclick="copyLink()" class="circle-btn" title="링크 복사">
-        🔗
-    </button>
-  </div>
+  <button onclick="copyLink()" class="circle-btn" title="링크 복사">
+    🔗
+  </button>
 
+  <a href="index.html" class="cta-btn" style="margin-top: 10px;">
+    🔁 테스트 다시하기
+  </a>
+</div>
 
     <!-- ✅ 복사 메시지 -->
     <div id="copyMessage" style="margin-top: 10px; font-size: 13px; color: green; display: none;">
