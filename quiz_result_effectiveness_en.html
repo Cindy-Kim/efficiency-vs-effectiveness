@@ -52,15 +52,6 @@
     .section p {
       line-height: 1.8;
     }
-    .restart-btn {
-      display: inline-block;
-      background-color: #3f3f3f;
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 16px;
-    }
     .action-btn {
       background-color: #f4f2ee;
       color: #3f3f3f;
@@ -85,10 +76,34 @@
       font-size: 20px;
       cursor: pointer;
     }
-    .small-note {
-      margin-top: 100px;
-      font-size: 13px;
-      color: #777;
+    .cta-box {
+    background-color: #eeece5;
+    padding: 24px;
+    border-radius: 12px;
+    margin-top: 50px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+    .cta-box p {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    }
+    .cta-btn {
+    background-color: #3f3f3f;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+    }
+    .cta-btn:hover {
+    background-color: #2c2c2c;
     }
   </style>
 </head>
@@ -135,6 +150,7 @@
       </div>
     </div>
 
+    <!-- ✅ Buttons -->
     <div style="margin-top: 80px; display: flex; justify-content: center; gap: 20px;">
       <button onclick="downloadPageAsImage()" class="action-btn">
         ⬇️ Save Result as Image
@@ -144,26 +160,32 @@
         🔗
       </button>
     </div>
-
+    
+    <!-- ✅ Copy Message -->
     <div id="copyMessage" style="margin-top: 10px; font-size: 13px; color: green; display: none;">
       ✅ Link copied to clipboard!
     </div>
 
-    <div class="small-note">
-      Hi, I’m a life & team coach <strong>Cindy</strong> :).<br />
-      I created this test just for fun—while exploring the differences between efficiency and effectiveness.<br />
-      I hope it gave you a little insight ☺️ <br />
+    <!-- ✅ Coaching CTA -->
+    <div class="cta-box">
+    <p>
+        Hi, I'm a life & team coach <strong>Cindy</strong>:)<br />
+        I hope this little test brought you both some fun and insight.<br />
+        <br />
+        If you're into content like this,<br />
+        <strong>follow me on LinkedIn! Let's connect :)🩵</strong><br />
+
+        <a class="cta-btn" href="https://coach-goyou.super.site" target="_blank">
+        🌱 Follow on LinkedIn
+        </a>
+    </p>
+    <p> 
       If you’d like to check out the references behind this quiz and a quick summary of the key differences,  
-      <a href="reference_en.html" style="color: #1a73e8; text-decoration: underline;">click here</a>.<br /><br />
-      If you're into content like this,<br />
-      follow me on LinkedIn! Let's connect :)🩵  
+      <a href="reference_en.html" style="color: #1a73e8; text-decoration: underline;">click here</a>.
+    </p>
     </div>
-
-    <a class="restart-btn" href="https://www.linkedin.com/in/goyoubycindy/" style="margin-top: 20px;">
-      Follow on LinkedIn
-    </a>
-  </div>
-
+    
+  <!-- ✅ Scripts -->
   <script>
     function downloadPageAsImage() {
       const captureTarget = document.getElementById("captureArea");
