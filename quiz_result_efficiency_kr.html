@@ -15,7 +15,7 @@
   
     gtag('config', 'G-9XZ59ZBDHB');
   </script>
-  <style>
+<style>
     body {
       font-family: 'Pretendard', sans-serif;
       background-color: #f4f2ee;
@@ -52,15 +52,6 @@
     .section p {
       line-height: 1.8;
     }
-    .restart-btn {
-      display: inline-block;
-      background-color: #3f3f3f;
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 16px;
-    }
     .action-btn {
       background-color: #f4f2ee;
       color: #3f3f3f;
@@ -85,10 +76,39 @@
       font-size: 20px;
       cursor: pointer;
     }
-    .small-note {
-      margin-top: 100px;
-      font-size: 13px;
-      color: #777;
+    .cta-box {
+    background-color: #eeece5;
+    padding: 24px;
+    border-radius: 12px;
+    margin-top: 50px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+    .cta-box p {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    }
+    .cta-btn {
+    background-color: #3f3f3f;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+    }
+    .cta-btn:hover {
+    background-color: #2c2c2c;
+    }
+    .linkedin-btn img {
+    height: 24px;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    cursor: pointer; /* 👉 손가락 커서로 변경 */
     }
   </style>
 </head>
@@ -146,7 +166,12 @@
       <button onclick="copyLink()" class="circle-btn" title="링크 복사">
         🔗
       </button>
+     <!-- ✅ LinkedIn 버튼 -->
+    <a href="https://www.linkedin.com/in/goyoubycindy" target="_blank" title="LinkedIn 방문" style="display: flex; align-items: center;">
+    <img src="LI-In-Bug.png" alt="LinkedIn" style="height: 24px;" />
+    </a>
     </div>
+
 
     <!-- ✅ 복사 메시지 -->
     <div id="copyMessage" style="margin-top: 10px; font-size: 13px; color: green; display: none;">
@@ -154,22 +179,25 @@
     </div>
 
     <!-- ✅ 코칭 CTA -->
-    <div class="small-note">
-      안녕하세요. 코치, <strong>고유</strong>입니다 :) <br />
-      효율과 효과의 차이를 찾아보다 재미로 만들어본 테스트인데 조금이나마 유익하셨기를 바랍니다☺️<br />
-      둘의 상세 차이점과 테스트를 만드는 데 참고한 자료를 보고싶으시다면  
-      <a href="reference_kr.html" style="color: #1a73e8; text-decoration: underline;">여기</a>를 눌러주세요.<br /><br />
-      더불어 저는 라이프 코칭을 하고 있는데요, <br />
-      본인이 뭘 잘하고 좋아하는 지 잘 모르겠거나,<br />
-      직장에서 번아웃을 느끼거나 삶의 의미를 찾고 계시다면,<br />
-      <strong>코칭을 한 번 받아보세요.</strong><br /><br />
-      아래 버튼을 눌러 제 사이트에 들어가면, 코칭이 무엇인지 알아보고 <strong>30분 무료 체험</strong>을 신청할 수 있습니다.
-    </div>
+    <div class="cta-box">
+    <p>
+        안녕하세요. 코치 <strong>고유</strong>입니다 :)<br />
+        간단한 테스트로 본인의 일하는 모습을 돌아보는 시간이 되셨길 바랍니다.<br />
+        <br />
+        <strong>혹시 자신의 강점이 무엇인지 알아보고 싶거나 <br />
+        삶과 일의 가치와 의미를 되찾고 싶다면,<br />
+        라이프 코칭을 받아보세요.</strong> <br /><br />
+        아래 버튼을 눌러 자세한 내용을 살펴보고, 무료 체험도 신청해보세요.<br />
 
-    <a class="restart-btn" href="https://coach-goyou.super.site" style="margin-top: 20px;">
-      코칭 무료체험하기
-    </a>
-  </div>
+        <a class="cta-btn" href="https://coach-goyou.super.site" target="_blank">
+        🌱 코칭 무료 체험 신청하기
+        </a>
+    </p>
+    <p>  
+        효과와 효율의 비교 설명과 참고 자료 출처를 보시려면,
+         <a href="reference_kr.html" style="color: #1a73e8; text-decoration: underline;">여기</a>를 눌러주세요.
+    </p>
+    </div>
 
   <!-- ✅ 스크립트 -->
   <script>
